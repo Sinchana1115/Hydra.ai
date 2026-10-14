@@ -1,0 +1,369 @@
+{
+ "note": "DEMO DATA with illustrative ingredient lists. Replace with real products before claiming accuracy.",
+ "items": [
+  {
+   "id": "C01",
+   "category": "cleanser",
+   "brand": "Demo",
+   "name": "Gentle Gel Cleanser",
+   "price_inr": 349,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination",
+    "normal"
+   ],
+   "concerns": [
+    "acne"
+   ],
+   "ingredients": [
+    "Water",
+    "Glycerin",
+    "Cocamidopropyl Betaine",
+    "Panthenol"
+   ]
+  },
+  {
+   "id": "C02",
+   "category": "cleanser",
+   "brand": "Demo",
+   "name": "Creamy Hydrating Cleanser",
+   "price_inr": 399,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "dry",
+    "sensitive",
+    "normal"
+   ],
+   "concerns": [
+    "dryness",
+    "redness"
+   ],
+   "ingredients": [
+    "Water",
+    "Glycerin",
+    "Ceramide NP",
+    "Cholesterol"
+   ]
+  },
+  {
+   "id": "S01",
+   "category": "serum",
+   "brand": "Demo",
+   "name": "Niacinamide 10% Serum",
+   "price_inr": 599,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination",
+    "normal",
+    "sensitive"
+   ],
+   "concerns": [
+    "acne",
+    "pigmentation",
+    "redness"
+   ],
+   "ingredients": [
+    "Water",
+    "Niacinamide",
+    "Zinc PCA",
+    "Glycerin"
+   ]
+  },
+  {
+   "id": "S02",
+   "category": "serum",
+   "brand": "Demo",
+   "name": "Vitamin C 15% Serum",
+   "price_inr": 899,
+   "sessions": [
+    "am"
+   ],
+   "skin_types": [
+    "oily",
+    "dry",
+    "combination",
+    "normal"
+   ],
+   "concerns": [
+    "pigmentation",
+    "dullness",
+    "aging"
+   ],
+   "ingredients": [
+    "Water",
+    "Ascorbic Acid",
+    "Ferulic Acid",
+    "Tocopherol"
+   ]
+  },
+  {
+   "id": "S03",
+   "category": "serum",
+   "brand": "Demo",
+   "name": "Gentle Vitamin C Derivative Serum",
+   "price_inr": 799,
+   "sessions": [
+    "am"
+   ],
+   "skin_types": [
+    "oily",
+    "dry",
+    "combination",
+    "normal",
+    "sensitive"
+   ],
+   "concerns": [
+    "dullness",
+    "pigmentation"
+   ],
+   "ingredients": [
+    "Water",
+    "Sodium Ascorbyl Phosphate",
+    "Glycerin",
+    "Panthenol"
+   ]
+  },
+  {
+   "id": "S04",
+   "category": "serum",
+   "brand": "Demo",
+   "name": "Hyaluronic Acid Serum",
+   "price_inr": 549,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "dry",
+    "combination",
+    "normal",
+    "sensitive"
+   ],
+   "concerns": [
+    "dryness"
+   ],
+   "ingredients": [
+    "Water",
+    "Sodium Hyaluronate",
+    "Glycerin",
+    "Panthenol"
+   ]
+  },
+  {
+   "id": "S05",
+   "category": "serum",
+   "brand": "Demo",
+   "name": "Azelaic Acid 10% Serum",
+   "price_inr": 699,
+   "sessions": [
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination",
+    "normal",
+    "sensitive",
+    "dry"
+   ],
+   "concerns": [
+    "acne",
+    "redness",
+    "pigmentation"
+   ],
+   "ingredients": [
+    "Water",
+    "Azelaic Acid",
+    "Glycerin"
+   ]
+  },
+  {
+   "id": "T01",
+   "category": "treatment",
+   "brand": "Demo",
+   "name": "Retinol 0.3% Night Serum",
+   "price_inr": 999,
+   "sessions": [
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "dry",
+    "combination",
+    "normal"
+   ],
+   "concerns": [
+    "aging",
+    "acne",
+    "pigmentation"
+   ],
+   "ingredients": [
+    "Squalane",
+    "Retinol",
+    "Tocopherol"
+   ]
+  },
+  {
+   "id": "T02",
+   "category": "treatment",
+   "brand": "Demo",
+   "name": "Salicylic Acid 2% Treatment",
+   "price_inr": 449,
+   "sessions": [
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination"
+   ],
+   "concerns": [
+    "acne"
+   ],
+   "ingredients": [
+    "Water",
+    "Salicylic Acid",
+    "Glycerin"
+   ]
+  },
+  {
+   "id": "T03",
+   "category": "treatment",
+   "brand": "Demo",
+   "name": "Glycolic Acid 7% Toner",
+   "price_inr": 649,
+   "sessions": [
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination",
+    "normal"
+   ],
+   "concerns": [
+    "dullness",
+    "pigmentation",
+    "aging"
+   ],
+   "ingredients": [
+    "Water",
+    "Glycolic Acid",
+    "Aloe Barbadensis Leaf Juice"
+   ]
+  },
+  {
+   "id": "M01",
+   "category": "moisturizer",
+   "brand": "Demo",
+   "name": "Light Gel Moisturizer",
+   "price_inr": 449,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "oily",
+    "combination"
+   ],
+   "concerns": [
+    "acne"
+   ],
+   "ingredients": [
+    "Water",
+    "Glycerin",
+    "Sodium Hyaluronate",
+    "Dimethicone"
+   ]
+  },
+  {
+   "id": "M02",
+   "category": "moisturizer",
+   "brand": "Demo",
+   "name": "Rich Ceramide Cream",
+   "price_inr": 599,
+   "sessions": [
+    "am",
+    "pm"
+   ],
+   "skin_types": [
+    "dry",
+    "sensitive",
+    "normal"
+   ],
+   "concerns": [
+    "dryness",
+    "redness"
+   ],
+   "ingredients": [
+    "Water",
+    "Ceramide NP",
+    "Ceramide AP",
+    "Cholesterol",
+    "Shea Butter"
+   ]
+  },
+  {
+   "id": "P01",
+   "category": "sunscreen",
+   "brand": "Demo",
+   "name": "Lightweight SPF 50 Gel",
+   "price_inr": 549,
+   "sessions": [
+    "am"
+   ],
+   "skin_types": [
+    "oily",
+    "combination",
+    "normal"
+   ],
+   "concerns": [
+    "acne",
+    "pigmentation",
+    "aging"
+   ],
+   "ingredients": [
+    "Water",
+    "Avobenzone",
+    "Octocrylene",
+    "Glycerin"
+   ]
+  },
+  {
+   "id": "P02",
+   "category": "sunscreen",
+   "brand": "Demo",
+   "name": "Mineral SPF 50 Cream",
+   "price_inr": 649,
+   "sessions": [
+    "am"
+   ],
+   "skin_types": [
+    "dry",
+    "sensitive",
+    "normal"
+   ],
+   "concerns": [
+    "redness",
+    "pigmentation",
+    "aging",
+    "dryness"
+   ],
+   "ingredients": [
+    "Zinc Oxide",
+    "Titanium Dioxide",
+    "Water",
+    "Glycerin"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>hydra.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F2EB;--ink:#1F1D19;--mut:#7A746A;--line:#E3DCCF;--card:#FFFFFF;--sage:#6B8A6E;--sage-d:#4F6B52;--clay:#C48F6A;--bad:#B4513F;--soft:#EFE9DD}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.5}
+h1,h2,h3,.serif{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:-.01em}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 32px;border-bottom:1px solid var(--line);flex-wrap:wrap;position:sticky;top:0;background:rgba(246,242,235,.92);backdrop-filter:blur(8px);z-index:5}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-size:30px;font-weight:600;letter-spacing:-.02em}.logo i{color:var(--sage);font-style:normal}
+nav{display:flex;gap:26px;flex-wrap:wrap}
+nav button{background:none;border:0;padding:6px 0;font:500 13px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);cursor:pointer;border-bottom:1px solid transparent}
+nav button.active{color:var(--ink);border-bottom-color:var(--ink)}
+.status{display:flex;gap:8px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;font-size:12px;color:var(--mut)}
+main{max-width:1180px;margin:0 auto;padding:36px 32px 80px}
+.hero{margin-bottom:26px}.hero .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-d);margin-bottom:6px}
+.hero h1{font-size:46px;line-height:1.05;margin:0}.hero h1 em{color:var(--sage-d)}.hero p{color:var(--mut);max-width:560px;margin:10px 0 0}
+.tab{display:none}.tab.active{display:block}
+.grid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:28px}
+@media(max-width:860px){.grid2{grid-template-columns:1fr}header{padding:14px 18px}main{padding:24px 18px 80px}.hero h1{font-size:36px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px}
+.card h3{margin:0 0 12px;font-size:22px}
+#cam{width:100%;border-radius:18px;background:#d9d2c4;display:block;aspect-ratio:4/3;object-fit:cover}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.btn{background:var(--ink);color:#fff;border:1px solid var(--ink);padding:11px 22px;border-radius:999px;cursor:pointer;font:500 12px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;display:inline-block}
+.btn.sage{background:var(--sage-d);border-color:var(--sage-d)}.btn.line{background:transparent;color:var(--ink)}.btn.sm{padding:7px 14px;font-size:11px}
+.btn:disabled{opacity:.4;cursor:default}
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:16px;margin-bottom:18px}
+.swatch{background:none;border:0;cursor:pointer;text-align:center;padding:0;color:var(--ink);font:inherit}
+.swatch .dot{width:52px;height:52px;border-radius:50%;margin:0 auto 6px;border:1px solid rgba(0,0,0,.12);position:relative;display:block;transition:transform .15s}
+.swatch:hover .dot{transform:scale(1.06)}.swatch.active .dot{box-shadow:0 0 0 2px var(--bg),0 0 0 4px var(--ink)}
+.swatch.locked .dot{opacity:.55}.swatch.locked .dot::after{content:"\1F512";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.swatch small{display:block;font-size:11px;color:var(--mut);line-height:1.2}
+.mut{color:var(--mut);font-size:13px}.warn{border-left:2px solid var(--bad);padding:6px 12px;margin:8px 0;background:#f7e9e5;border-radius:4px;font-size:13px}
+.tag{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:var(--soft);color:var(--sage-d);margin:2px 4px 2px 0}.tag.demo{background:#f1e2d3;color:#8b5a35}
+.banner{display:none;background:#f7e9e5;border:1px solid #e6c2b9;color:var(--bad);padding:10px 32px;font-size:13px}
+label.f{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:14px 0 6px}
+select,input[type=number],input[type=text],textarea{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--ink);font:inherit}
+textarea{min-height:80px;resize:vertical}
+.checks{display:flex;gap:8px;flex-wrap:wrap}.checks label{display:flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:#fff;cursor:pointer;font-size:13px}
+.step{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}.step:last-child{border:0}
+.thumb{width:54px;height:54px;border-radius:12px;background:var(--soft);object-fit:cover;flex:none;display:flex;align-items:center;justify-content:center;color:var(--sage-d);font-family:"Cormorant Garamond",serif;font-size:20px}
+.step .grow{flex:1}.step b{font-weight:600}
+.shop-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}.shop-bar input{flex:1;min-width:220px}
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.pcard .img{aspect-ratio:1/1;background:var(--soft);display:flex;align-items:center;justify-content:center;font:500 44px "Cormorant Garamond",serif;color:var(--sage-d)}
+.pcard .img img{width:100%;height:100%;object-fit:contain;background:#fff}
+.pcard .body{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}.pcard .brand{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.pcard .name{font-family:"Cormorant Garamond",serif;font-size:19px;line-height:1.15}
+.overlay{position:fixed;inset:0;background:rgba(31,29,25,.45);display:none;align-items:center;justify-content:center;z-index:20;padding:18px}
+.modal{background:var(--bg);border-radius:22px;max-width:640px;width:100%;max-height:90vh;overflow:auto;padding:26px}
+#chatlog{height:400px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:4px 2px}
+.msg{max-width:84%;padding:11px 16px;border-radius:18px;white-space:pre-wrap;font-size:14px}
+.msg.user{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}.msg.bot{align-self:flex-start;background:var(--soft);border-bottom-left-radius:4px}
+.msg .used{display:block;font-size:11px;color:var(--mut);margin-top:6px}
+.bar{height:6px;background:var(--soft);border-radius:99px;overflow:hidden}.bar>i{display:block;height:100%;background:var(--sage)}
+.big{font:500 64px "Cormorant Garamond",serif;line-height:1}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 20px;border-radius:999px;display:none;z-index:30;max-width:90vw;font-size:13px}
+details summary{cursor:pointer;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--sage-d);padding:8px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">hydra<i>.ai</i></div>
+  <nav id="tabs">
+    <button data-tab="tryon" class="active">Try on</button><button data-tab="routine">Routine</button><button data-tab="shop">Shop</button><button data-tab="chat">Ask hydra</button><button data-tab="rewards">Rewards</button>
+  </nav>
+  <div class="status"><span class="pill" id="pPoints">0 pts</span><span class="pill" id="pStreak">0 day streak</span><span class="pill" id="pCam">camera...</span></div>
+</header>
+<div class="banner" id="banner"></div>
+<main>
+  <section id="tab-tryon" class="tab active">
+    <div class="hero"><div class="eyebrow">Live AR try-on</div><h1>Find your shade, <em>skin first.</em></h1><p>Scan your skin tone, then try lip and cheek colour live on your own face.</p></div>
+    <div class="grid2">
+      <div class="card">
+        <img id="cam" src="/video" alt="Live camera">
+        <div class="row">
+          <button class="btn sage" id="btnScan">Scan my skin</button>
+          <label class="btn line" style="margin:0">Upload photo<input id="photo" type="file" accept="image/*" hidden></label>
+          <button class="btn line" id="btnSurprise">Surprise me</button>
+          <button class="btn line" id="btnClear">Clear</button>
+        </div>
+        <div id="scanOut" style="margin-top:16px"></div>
+      </div>
+      <div class="card">
+        <h3>Lip colour</h3><div class="sw-grid" id="lipChips"></div>
+        <h3>Cheek colour</h3><div class="sw-grid" id="blushChips"></div>
+        <div class="mut">Locked shades unlock with points from the Rewards tab.</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tab-routine" class="tab">
+    <div class="hero"><div class="eyebrow">Personal routine</div><h1>Simple steps, <em>rule-checked.</em></h1><p>Built from your skin type and concerns, using your real products first. Conflicting actives are flagged.</p></div>
+    <div class="grid2">
+      <div class="card">
+        <h3>Your skin</h3>
+        <label class="f">Skin type</label><select id="skinType"></select>
+        <label class="f">Concerns</label><div class="checks" id="concerns"></div>
+        <label class="f">Max price per product (INR, optional)</label><input type="number" id="budget" min="0" step="50">
+        <div class="checks" style="margin-top:14px"><label><input type="checkbox" id="noRetinoids"> Avoid retinoids (for example if advised by a doctor)</label></div>
+        <div class="row"><button class="btn sage" id="btnRoutine">Build my routine</button></div>
+      </div>
+      <div class="card"><h3>Your routine</h3><div id="routineOut" class="mut">Fill in your skin details, then build your routine.</div></div>
+    </div>
+  </section>
+
+  <section id="tab-shop" class="tab">
+    <div class="hero"><div class="eyebrow">Real products</div><h1>Search the <em>shelf.</em></h1><p>Live search pulls real products and ingredient lists from Open Beauty Facts. Add the ones you use and they join your routine.</p></div>
+    <div class="shop-bar">
+      <input type="text" id="q" placeholder="Try: niacinamide, sunscreen, retinol, cleanser...">
+      <button class="btn sage" id="btnLive">Search live</button><button class="btn line" id="btnMine">My catalog</button>
+    </div>
+    <div class="mut" id="shopNote" style="margin-bottom:14px"></div>
+    <div class="products" id="products"></div>
+    <details class="card" style="margin-top:28px"><summary>Add a product you own</summary>
+      <div class="mut">Can't find it? Copy the ingredient list (INCI) from the brand's website.</div>
+      <label class="f">Name</label><input type="text" id="cName"><label class="f">Brand</label><input type="text" id="cBrand">
+      <label class="f">Type</label><select id="cCat"></select>
+      <label class="f">Ingredients (comma separated)</label><textarea id="cIng"></textarea>
+      <label class="f">Price in INR (optional)</label><input type="number" id="cPrice" min="0">
+      <div class="row"><button class="btn sage" id="btnCustom">Add product</button></div>
+    </details>
+  </section>
+
+  <section id="tab-chat" class="tab">
+    <div class="hero"><div class="eyebrow">Skincare assistant</div><h1>Ask <em>hydra.</em></h1><p>Ingredient questions, routine tweaks, product ideas. Answers use your profile and catalog.</p></div>
+    <div class="card"><div id="chatlog"></div>
+      <div class="row"><input type="text" id="chatIn" placeholder="Can I use retinol with vitamin C?" style="flex:1"><button class="btn sage" id="chatSend">Send</button></div>
+      <div class="mut" style="margin-top:10px" id="chatMode"></div></div>
+  </section>
+
+  <section id="tab-rewards" class="tab">
+    <div class="hero"><div class="eyebrow">Glow rewards</div><h1>Show up, <em>glow up.</em></h1><p>Check in after your routine to earn points, keep a streak and unlock new shades.</p></div>
+    <div class="grid2">
+      <div class="card"><h3>Daily check-in</h3>
+        <div class="row" style="margin-top:0"><button class="btn sage" id="ciAm">Morning done</button><button class="btn sage" id="ciPm">Night done</button></div>
+        <div style="margin-top:26px"><div class="big" id="gPoints">0</div><div class="mut">Hydra points</div></div>
+        <div style="margin-top:18px"><div class="mut" id="gLevel"></div><div class="bar"><i id="gBar" style="width:0"></i></div></div></div>
+      <div class="card"><h3>Streak and badges</h3><div class="big" id="gStreak">0</div><div class="mut">day streak</div><div id="badges" style="margin-top:14px"></div>
+        <div class="mut" style="margin-top:14px">+10 per routine, +5 for both in a day, +50 for a 7-day streak, +50 first scan, +20 weekly progress scan.</div></div>
+    </div>
+  </section>
+</main>
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+<div id="toast"></div>
+
+<script>
+const $ = (s, r = document) => r.querySelector(s);
+function el(tag, props = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(props)) {
+    if (k === 'class') e.className = v; else if (k.startsWith('on')) e.addEventListener(k.slice(2), v); else e.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) { if (kid == null) continue; e.append(kid.nodeType ? kid : document.createTextNode(String(kid))); }
+  return e;
+}
+async function api(path, opts = {}) {
+  const init = { ...opts };
+  if (opts.body && !(opts.body instanceof FormData)) { init.headers = { 'Content-Type': 'application/json' }; init.body = JSON.stringify(opts.body); }
+  const r = await fetch(path, init);
+  let data = null; try { data = await r.json(); } catch (e) {}
+  if (!r.ok) throw new Error((data && (data.detail || data.error)) || r.statusText);
+  return data;
+}
+let toastT;
+function toast(m) { const t = $('#toast'); t.textContent = m; t.style.display = 'block'; clearTimeout(toastT); toastT = setTimeout(() => t.style.display = 'none', 3800); }
+const run = async (fn) => { try { await fn(); } catch (e) { toast(e.message || String(e)); } };
+const safeUrl = (u) => (typeof u === 'string' && u.startsWith('https://')) ? u : null;
+const rs = (n) => (n == null ? 'price n/a' : 'Rs ' + n);
+
+document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#tabs button').forEach(x => x.classList.toggle('active', x === b));
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.id === 'tab-' + b.dataset.tab));
+  if (b.dataset.tab === 'shop' && !$('#products').children.length) run(showMine);
+}));
+
+// ---------- status ----------
+async function refreshHealth() {
+  const h = await api('/api/health');
+  $('#pCam').textContent = h.camera_running ? 'camera on' : 'camera off';
+  $('#chatMode').textContent = h.chat_ready ? 'Chat model: ' + h.provider + ' (' + h.model + ')' : 'Offline mode. Add a free GEMINI_API_KEY to .env (or run Ollama) for full chat.';
+  const b = $('#banner');
+  if (h.camera_error) {
+    b.style.display = 'block';
+    b.replaceChildren(h.camera_error + ' ', el('button', { class: 'btn line sm', onclick: () => run(async () => { await api('/api/camera/restart', { method: 'POST' }); toast('Restarting camera...'); }) }, 'Retry camera'));
+  } else b.style.display = 'none';
+}
+async function refreshGame() {
+  const g = await api('/api/game');
+  $('#pPoints').textContent = g.points + ' pts'; $('#pStreak').textContent = g.streak + ' day streak';
+  $('#gPoints').textContent = g.points; $('#gStreak').textContent = g.streak;
+  $('#gLevel').textContent = 'Level ' + g.level + ' - ' + g.points_to_next_level + ' points to the next level';
+  $('#gBar').style.width = (100 - g.points_to_next_level) + '%';
+  $('#ciAm').disabled = g.checked_in_today.am; $('#ciPm').disabled = g.checked_in_today.pm;
+  $('#badges').replaceChildren(...(g.badges.length ? g.badges.map(x => el('span', { class: 'tag' }, x)) : [el('span', { class: 'mut' }, 'No badges yet')]));
+}
+for (const [id, s] of [['#ciAm', 'am'], ['#ciPm', 'pm']]) $(id).addEventListener('click', () => run(async () => {
+  const r = await api('/api/checkin', { method: 'POST', body: { session: s } }); toast(r.message); await refreshGame(); await loadCatalog();
+}));
+
+// ---------- try-on ----------
+let catalogItems = [], activeIds = new Set();
+async function loadCatalog() {
+  const d = await api('/api/tryon/catalog'); catalogItems = d.items;
+  for (const [cat, box] of [['lipstick', '#lipChips'], ['blush', '#blushChips']]) {
+    $(box).replaceChildren(...catalogItems.filter(i => i.category === cat).map(i =>
+      el('button', { class: 'swatch' + (i.locked ? ' locked' : '') + (activeIds.has(i.id) ? ' active' : ''), onclick: () => run(() => pick(i)) },
+        el('span', { class: 'dot', style: 'background:' + i.hex }), i.name, el('small', {}, i.locked ? i.unlock_cost + ' pts' : i.undertone))));
+  }
+}
+async function pick(i) {
+  if (i.locked) {
+    if (!confirm('Unlock ' + i.name + ' for ' + i.unlock_cost + ' points?')) return;
+    const r = await api('/api/unlock', { method: 'POST', body: { item_id: i.id } }); toast(r.message); await refreshGame(); await loadCatalog();
+    if (!r.ok) return;
+  }
+  await api('/api/tryon', { method: 'POST', body: { product_id: i.id } });
+  catalogItems.filter(x => x.category === i.category).forEach(x => activeIds.delete(x.id)); activeIds.add(i.id); await loadCatalog();
+}
+$('#btnClear').addEventListener('click', () => run(async () => { await api('/api/tryon/clear', { method: 'POST' }); activeIds.clear(); await loadCatalog(); }));
+$('#btnSurprise').addEventListener('click', () => run(async () => {
+  for (const cat of ['lipstick', 'blush']) { const open = catalogItems.filter(i => i.category === cat && !i.locked); if (open.length) await pick(open[Math.floor(Math.random() * open.length)]); }
+}));
+function showScan(r) {
+  const s = r.skin, list = (arr, f) => arr.map(x => el('div', { class: 'mut' }, x.name + ' ' + f(x)));
+  $('#scanOut').replaceChildren(el('div', { style: 'border-top:1px solid var(--line);padding-top:14px' },
+    el('h3', { style: 'margin:0 0 6px' }, s.tone + ' skin, ' + s.undertone + ' undertone'),
+    ...s.warnings.map(w => el('div', { class: 'warn' }, w)),
+    el('div', { class: 'mut', style: 'margin-top:8px' }, 'FOUNDATION'), ...list(r.foundations, x => '(match \u0394E ' + x.delta_e + ', Rs ' + x.price_inr + ')'),
+    el('div', { class: 'mut', style: 'margin-top:8px' }, 'LIPSTICK'), ...list(r.lipsticks, x => '(' + x.undertone + ')'),
+    el('div', { class: 'mut', style: 'margin-top:8px' }, 'BLUSH'), ...list(r.blushes, x => '(' + x.undertone + ')'),
+    el('div', { class: 'mut', style: 'margin-top:10px' }, 'Estimated from your cheeks. Lighting affects accuracy.')));
+  if (r.points_gained) toast('+' + r.points_gained + ' points for scanning');
+  refreshGame();
+}
+$('#btnScan').addEventListener('click', () => run(async () => showScan(await api('/api/scan', { method: 'POST' }))));
+$('#photo').addEventListener('change', (e) => run(async () => {
+  const f = e.target.files[0]; if (!f) return; const fd = new FormData(); fd.append('image', f);
+  showScan(await api('/api/scan-photo', { method: 'POST', body: fd })); e.target.value = '';
+}));
+
+// ---------- routine ----------
+const thumb = (p) => (p && safeUrl(p.image_url)) ? el('img', { class: 'thumb', src: p.image_url, loading: 'lazy', referrerpolicy: 'no-referrer', alt: '' }) : el('div', { class: 'thumb' }, p ? (p.name || '?')[0] : '-');
+const stepRow = (s) => el('div', { class: 'step' }, thumb(s.product),
+  el('div', { class: 'grow' }, el('b', {}, s.step), el('div', {}, s.product ? s.product.name : 'None'),
+    el('div', { class: 'mut' }, (s.product && s.product.demo ? 'demo product. ' : '') + s.why)),
+  el('div', { class: 'mut' }, s.product ? rs(s.product.price_inr) : ''));
+async function loadProfile() {
+  const d = await api('/api/profile');
+  $('#skinType').replaceChildren(...d.skin_types.map(t => el('option', { value: t }, t))); $('#skinType').value = d.profile.skin_type;
+  $('#concerns').replaceChildren(...d.concerns.map(c => { const cb = el('input', { type: 'checkbox', value: c }); cb.checked = d.profile.concerns.includes(c); return el('label', {}, cb, c); }));
+  $('#budget').value = d.profile.budget_inr || ''; $('#noRetinoids').checked = d.profile.avoid_retinoids;
+  const cats = ['cleanser', 'serum', 'treatment', 'moisturizer', 'sunscreen'];
+  $('#cCat').replaceChildren(...cats.map(c => el('option', { value: c }, c)));
+}
+$('#btnRoutine').addEventListener('click', () => run(async () => {
+  await api('/api/profile', { method: 'POST', body: {
+    skin_type: $('#skinType').value, concerns: [...document.querySelectorAll('#concerns input:checked')].map(i => i.value),
+    budget_inr: $('#budget').value ? parseInt($('#budget').value, 10) : null, avoid_retinoids: $('#noRetinoids').checked } });
+  const r = await api('/api/routine');
+  $('#routineOut').replaceChildren(
+    el('div', { class: 'mut' }, 'MORNING'), ...r.am.map(stepRow), el('div', { class: 'mut', style: 'margin-top:14px' }, 'NIGHT'), ...r.pm.map(stepRow),
+    ...r.warnings.map(w => el('div', { class: 'warn' }, '[' + w.session.toUpperCase() + '] ' + w.between.join(' + ') + ': ' + w.advice)),
+    ...r.notes.map(n => el('div', { class: 'mut', style: 'margin-top:8px' }, n)),
+    el('div', { style: 'margin-top:12px' }, 'Total: Rs ' + r.total_inr + ' (products with unknown price count as 0)'), el('div', { class: 'mut', style: 'margin-top:8px' }, r.disclaimer));
+}));
+
+// ---------- shop ----------
+function closeModal() { $('#overlay').style.display = 'none'; }
+$('#overlay').addEventListener('click', (e) => { if (e.target.id === 'overlay') closeModal(); });
+function productCard(p) {
+  const img = safeUrl(p.image_url);
+  return el('div', { class: 'pcard' },
+    el('div', { class: 'img' }, img ? el('img', { src: img, loading: 'lazy', referrerpolicy: 'no-referrer', alt: '' }) : (p.name || '?')[0]),
+    el('div', { class: 'body' }, el('div', { class: 'brand' }, p.brand), el('div', { class: 'name' }, p.name),
+      el('div', {}, p.category ? el('span', { class: 'tag' }, p.category) : null, p.demo ? el('span', { class: 'tag demo' }, 'demo') : null,
+        ...(p.actives || []).slice(0, 3).map(a => el('span', { class: 'tag' }, a.replace('_', ' ')))),
+      el('div', { class: 'mut' }, rs(p.price_inr)),
+      el('div', { class: 'row', style: 'margin-top:auto' }, el('button', { class: 'btn line sm', onclick: () => openModal(p) }, 'Details'))));
+}
+function openModal(p) {
+  const catSel = el('select', {}, ...['cleanser', 'serum', 'treatment', 'moisturizer', 'sunscreen'].map(c => el('option', { value: c }, c)));
+  if (p.category) catSel.value = p.category;
+  const price = el('input', { type: 'number', min: '0', placeholder: 'optional', value: p.price_inr || '' });
+  const src = safeUrl(p.url);
+  const actions = [];
+  if (!p.in_catalog) actions.push(el('button', { class: 'btn sage', onclick: () => run(async () => {
+    await api('/api/products/import', { method: 'POST', body: { code: p.id, category: catSel.value, price_inr: price.value ? parseInt(price.value, 10) : null } });
+    toast('Added to your catalog'); closeModal(); showMine(); }) }, 'Add to my routine pool'));
+  if (p.in_catalog && !p.demo) actions.push(el('button', { class: 'btn line', onclick: () => run(async () => {
+    await api('/api/products/' + encodeURIComponent(p.id), { method: 'DELETE' }); toast('Removed'); closeModal(); showMine(); }) }, 'Remove'));
+  $('#modal').replaceChildren(
+    el('div', { class: 'brand mut' }, p.brand), el('h2', { style: 'font-size:30px;margin:4px 0 10px' }, p.name),
+    el('div', {}, ...(p.actives || []).map(a => el('span', { class: 'tag' }, a.replace('_', ' '))), ...(p.concerns || []).map(c => el('span', { class: 'tag demo' }, c))),
+    el('div', { class: 'mut', style: 'margin-top:6px' }, 'Source: ' + (p.source || 'demo catalog') + (p.auto_tagged ? '. Concerns and AM/PM use are auto-tagged from the ingredients.' : '')),
+    el('h3', { style: 'margin:16px 0 6px' }, 'Ingredients'), el('div', { class: 'mut' }, (p.ingredients || []).join(', ') || 'Not listed'),
+    p.in_catalog ? null : el('div', {}, el('label', { class: 'f' }, 'Type'), catSel, el('label', { class: 'f' }, 'Price in INR (OBF has no prices)'), price),
+    el('div', { class: 'row' }, ...actions, src ? el('a', { class: 'btn line', href: src, target: '_blank', rel: 'noopener noreferrer' }, 'Source page') : null,
+      el('button', { class: 'btn line', onclick: closeModal }, 'Close')));
+  $('#overlay').style.display = 'flex';
+}
+function renderProducts(items, note) {
+  $('#shopNote').textContent = note;
+  $('#products').replaceChildren(...(items.length ? items.map(productCard) : [el('div', { class: 'mut' }, 'Nothing here yet.')]));
+}
+async function showMine() { const d = await api('/api/products/local'); renderProducts(d.items, 'Your catalog. Items tagged demo are placeholders; add real products to replace them.'); }
+$('#btnMine').addEventListener('click', () => run(showMine));
+async function liveSearch() {
+  const q = $('#q').value.trim(); if (q.length < 2) { toast('Type at least 2 characters'); return; }
+  $('#shopNote').textContent = 'Searching Open Beauty Facts...';
+  const d = await api('/api/products/search?live=true&q=' + encodeURIComponent(q));
+  renderProducts(d.items, d.items.length + ' results from ' + d.source + '. Prices and stock are not available from this source.');
+}
+$('#btnLive').addEventListener('click', () => run(liveSearch));
+$('#q').addEventListener('keydown', e => { if (e.key === 'Enter') run(liveSearch); });
+$('#btnCustom').addEventListener('click', () => run(async () => {
+  await api('/api/products/custom', { method: 'POST', body: { name: $('#cName').value, brand: $('#cBrand').value, category: $('#cCat').value,
+    ingredients: $('#cIng').value, price_inr: $('#cPrice').value ? parseInt($('#cPrice').value, 10) : null } });
+  toast('Product added'); ['#cName', '#cBrand', '#cIng', '#cPrice'].forEach(s => $(s).value = ''); showMine();
+}));
+
+// ---------- chat ----------
+const history = [];
+function addMsg(role, text, tools) {
+  const m = el('div', { class: 'msg ' + role }, text);
+  if (tools && tools.length) m.append(el('span', { class: 'used' }, 'used: ' + tools.join(', ')));
+  $('#chatlog').append(m); $('#chatlog').scrollTop = 1e9;
+}
+async function sendChat() {
+  const input = $('#chatIn'), text = input.value.trim(); if (!text) return;
+  input.value = ''; addMsg('user', text); $('#chatSend').disabled = true;
+  try {
+    const r = await api('/api/chat', { method: 'POST', body: { message: text, history: history.slice(-10) } });
+    history.push({ role: 'user', content: text }, { role: 'assistant', content: r.reply }); addMsg('bot', r.reply, r.tools_used);
+  } catch (e) { addMsg('bot', 'Error: ' + e.message); }
+  $('#chatSend').disabled = false; input.focus();
+}
+$('#chatSend').addEventListener('click', sendChat);
+$('#chatIn').addEventListener('keydown', e => { if (e.key === 'Enter') sendChat(); });
+addMsg('bot', "Hi, I'm hydra. Ask me about ingredients, your routine, or products.");
+
+run(async () => { await Promise.all([refreshHealth(), refreshGame(), loadCatalog(), loadProfile()]); });
+setInterval(() => run(refreshHealth), 5000);
+</script>
+</body>
+</html>

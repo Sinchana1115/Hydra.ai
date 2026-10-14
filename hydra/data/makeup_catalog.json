@@ -1,0 +1,262 @@
+{
+ "note": "DEMO DATA. Replace with a real product feed or your own curated catalog.",
+ "items": [
+  {
+   "id": "F01",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Porcelain 100",
+   "hex": "#F3D5BF",
+   "undertone": "neutral",
+   "price_inr": 699,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F02",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Ivory 110",
+   "hex": "#E8C3A3",
+   "undertone": "cool",
+   "price_inr": 699,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F03",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Sand 200",
+   "hex": "#DDB38D",
+   "undertone": "warm",
+   "price_inr": 699,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F04",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Honey 210",
+   "hex": "#D0A178",
+   "undertone": "warm",
+   "price_inr": 699,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F05",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Caramel 300",
+   "hex": "#C28E63",
+   "undertone": "neutral",
+   "price_inr": 749,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F06",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Almond 310",
+   "hex": "#B07A52",
+   "undertone": "warm",
+   "price_inr": 749,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F07",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Cocoa 400",
+   "hex": "#8F5E3C",
+   "undertone": "neutral",
+   "price_inr": 799,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F08",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Espresso 410",
+   "hex": "#6F4529",
+   "undertone": "cool",
+   "price_inr": 799,
+   "unlock_cost": 0
+  },
+  {
+   "id": "F09",
+   "category": "foundation",
+   "brand": "Demo",
+   "name": "Mahogany 500",
+   "hex": "#55331F",
+   "undertone": "neutral",
+   "price_inr": 799,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L01",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Coral Crush",
+   "hex": "#E4674F",
+   "undertone": "warm",
+   "depths": [
+    "light",
+    "medium"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L02",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Nude Rose",
+   "hex": "#C98B86",
+   "undertone": "cool",
+   "depths": [
+    "light",
+    "medium"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L03",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Brick House",
+   "hex": "#A5432F",
+   "undertone": "warm",
+   "depths": [
+    "medium",
+    "deep"
+   ],
+   "price_inr": 549,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L04",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Berry Bliss",
+   "hex": "#8B2C4A",
+   "undertone": "cool",
+   "depths": [
+    "medium",
+    "deep"
+   ],
+   "price_inr": 549,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L05",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Plum Velvet",
+   "hex": "#6B2A4B",
+   "undertone": "cool",
+   "depths": [
+    "deep"
+   ],
+   "price_inr": 549,
+   "unlock_cost": 0
+  },
+  {
+   "id": "L06",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Terracotta",
+   "hex": "#B5573A",
+   "undertone": "warm",
+   "depths": [
+    "medium",
+    "deep"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 60
+  },
+  {
+   "id": "L07",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Classic Red",
+   "hex": "#C1121F",
+   "undertone": "neutral",
+   "depths": [
+    "light",
+    "medium",
+    "deep"
+   ],
+   "price_inr": 599,
+   "unlock_cost": 100
+  },
+  {
+   "id": "L08",
+   "category": "lipstick",
+   "brand": "Demo",
+   "name": "Dusty Mauve",
+   "hex": "#A36A7C",
+   "undertone": "cool",
+   "depths": [
+    "medium"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 150
+  },
+  {
+   "id": "B01",
+   "category": "blush",
+   "brand": "Demo",
+   "name": "Peach Pop",
+   "hex": "#F4A58A",
+   "undertone": "warm",
+   "depths": [
+    "light",
+    "medium"
+   ],
+   "price_inr": 449,
+   "unlock_cost": 0
+  },
+  {
+   "id": "B02",
+   "category": "blush",
+   "brand": "Demo",
+   "name": "Rose Petal",
+   "hex": "#E58A9A",
+   "undertone": "cool",
+   "depths": [
+    "light",
+    "medium"
+   ],
+   "price_inr": 449,
+   "unlock_cost": 0
+  },
+  {
+   "id": "B03",
+   "category": "blush",
+   "brand": "Demo",
+   "name": "Berry Flush",
+   "hex": "#B8566E",
+   "undertone": "cool",
+   "depths": [
+    "medium",
+    "deep"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 80
+  },
+  {
+   "id": "B04",
+   "category": "blush",
+   "brand": "Demo",
+   "name": "Terracotta Glow",
+   "hex": "#C4684B",
+   "undertone": "warm",
+   "depths": [
+    "medium",
+    "deep"
+   ],
+   "price_inr": 499,
+   "unlock_cost": 120
+  }
+ ]
+}
